@@ -6,4 +6,8 @@
 //  Copyright © 2019 churabou. All rights reserved.
 //
 
-import Foundation
+import ReactiveSwift
+
+final class LoginViewModel_Reactive {
+    
+}
