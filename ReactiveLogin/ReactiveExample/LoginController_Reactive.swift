@@ -1,5 +1,5 @@
 //
-//  LoginViewController_Reactive.swift
+//  LoginController_Reactive.swift
 //  ReactiveLogin
 //
 //  Created by chutatsu on 2019/05/21.
@@ -23,7 +23,20 @@ final class LoginController_Reactive: UIViewController {
         view = baseView
     }
     
+    
+    private let viewModel = LoginViewModel_Reactive()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        bindToViewModel()
+    }
+    
+    private func bindToViewModel() {
+
+        viewModel.input.emailText <~ usernameTextField.reactive.continuousTextValues
+        
+        viewModel.output.emailTextIsValid.observeValues { [weak self] in
+             self?.usernameTextField.layer.borderColor = ($0 ? UIColor.green : .red).cgColor
+        }
     }
 }

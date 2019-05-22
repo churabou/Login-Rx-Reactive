@@ -9,5 +9,17 @@
 import Foundation
 
 protocol LoginService {
+    func requestLogin(email: String, password: String)
+}
+
+enum LoginError: Error {
+    case invalidUserIdOrPassword
+    case networkError
+}
+
+struct LoginServiceStub: LoginService {
     
+    func requestLogin(email: String, password: String) {
+        
+    }
 }

@@ -18,7 +18,7 @@
 		1B2052962294327F00D5B42B /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2052952294327F00D5B42B /* LoginService.swift */; };
 		1B205298229433C300D5B42B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B205297229433C300D5B42B /* LoginView.swift */; };
 		1B20529B2294354000D5B42B /* LoginViewModel_Reactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B20529A2294354000D5B42B /* LoginViewModel_Reactive.swift */; };
-		1B20529F229447B100D5B42B /* LoginViewController_Reactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B20529E229447B100D5B42B /* LoginViewController_Reactive.swift */; };
+		1B20529F229447B100D5B42B /* LoginController_Reactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B20529E229447B100D5B42B /* LoginController_Reactive.swift */; };
 		D729A3A122174A7B31AF3EE6 /* Pods_ReactiveLoginUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44B3775889ADB25ADE2EA387 /* Pods_ReactiveLoginUITests.framework */; };
 		EDCFD9BDEDC3E24C35B08CC2 /* Pods_ReactiveLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D174B4166A7B7275169DFC7 /* Pods_ReactiveLogin.framework */; };
 /* End PBXBuildFile section */
@@ -50,7 +50,7 @@
 		1B2052952294327F00D5B42B /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		1B205297229433C300D5B42B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		1B20529A2294354000D5B42B /* LoginViewModel_Reactive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel_Reactive.swift; sourceTree = "<group>"; };
-		1B20529E229447B100D5B42B /* LoginViewController_Reactive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController_Reactive.swift; sourceTree = "<group>"; };
+		1B20529E229447B100D5B42B /* LoginController_Reactive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController_Reactive.swift; sourceTree = "<group>"; };
 		2D174B4166A7B7275169DFC7 /* Pods_ReactiveLogin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReactiveLogin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		44B3775889ADB25ADE2EA387 /* Pods_ReactiveLoginUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReactiveLoginUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		827165692C424086903A477B /* Pods-ReactiveLogin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactiveLogin.release.xcconfig"; path = "Target Support Files/Pods-ReactiveLogin/Pods-ReactiveLogin.release.xcconfig"; sourceTree = "<group>"; };
@@ -102,8 +102,8 @@
 			isa = PBXGroup;
 			children = (
 				1B20529D2294478500D5B42B /* Common */,
-				1B20529C2294354400D5B42B /* ReactiveLogin */,
-				1B2052992294352500D5B42B /* RxLogin */,
+				1B20529C2294354400D5B42B /* ReactiveExample */,
+				1B2052992294352500D5B42B /* RxExample */,
 				1B2052A0229447F300D5B42B /* Supports */,
 			);
 			path = ReactiveLogin;
@@ -118,22 +118,22 @@
 			path = ReactiveLoginUITests;
 			sourceTree = "<group>";
 		};
-		1B2052992294352500D5B42B /* RxLogin */ = {
+		1B2052992294352500D5B42B /* RxExample */ = {
 			isa = PBXGroup;
 			children = (
 				1B205291229431E300D5B42B /* LoginController_Rx.swift */,
 				1B2052932294323000D5B42B /* LoginViewModel_Rx.swift */,
 			);
-			path = RxLogin;
+			path = RxExample;
 			sourceTree = "<group>";
 		};
-		1B20529C2294354400D5B42B /* ReactiveLogin */ = {
+		1B20529C2294354400D5B42B /* ReactiveExample */ = {
 			isa = PBXGroup;
 			children = (
 				1B20529A2294354000D5B42B /* LoginViewModel_Reactive.swift */,
-				1B20529E229447B100D5B42B /* LoginViewController_Reactive.swift */,
+				1B20529E229447B100D5B42B /* LoginController_Reactive.swift */,
 			);
-			path = ReactiveLogin;
+			path = ReactiveExample;
 			sourceTree = "<group>";
 		};
 		1B20529D2294478500D5B42B /* Common */ = {
@@ -362,7 +362,7 @@
 				1B205298229433C300D5B42B /* LoginView.swift in Sources */,
 				1B2052942294323000D5B42B /* LoginViewModel_Rx.swift in Sources */,
 				1B20529B2294354000D5B42B /* LoginViewModel_Reactive.swift in Sources */,
-				1B20529F229447B100D5B42B /* LoginViewController_Reactive.swift in Sources */,
+				1B20529F229447B100D5B42B /* LoginController_Reactive.swift in Sources */,
 				1B205274229430A900D5B42B /* ViewController.swift in Sources */,
 				1B2052962294327F00D5B42B /* LoginService.swift in Sources */,
 				1B205292229431E300D5B42B /* LoginController_Rx.swift in Sources */,
