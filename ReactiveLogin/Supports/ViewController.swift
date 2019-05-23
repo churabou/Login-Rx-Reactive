@@ -15,7 +15,7 @@ import ReactiveCocoa
 import ReactiveSwift
 
 final class ViewController: UIViewController {
-
+    
     private var label: UILabel = {
         let it = UILabel()
         it.textColor = .darkGray
@@ -32,7 +32,7 @@ final class ViewController: UIViewController {
         it.layer.borderWidth = 2
         return it
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,13 +40,70 @@ final class ViewController: UIViewController {
         view.addSubview(textField)
         
         textField.frame.size = .init(width: 300, height: 50)
-         textField.center = view.center
+        textField.center = view.center
         
         label.center = view.center
         label.center.y -= 100
         label.frame.size = .init(width: 300, height: 50)
         
+        
+        hot: do {
+            let (signal, observer) = Signal<Int, NoError>.pipe()
+            observer.send(value: 1)
+
+            signal.observe { event in
+                switch event {
+                case .value(let value): print("startA: \(value)")
+                case .failed(let error): print(error)
+                case .completed: print("Completed event")
+                case .interrupted: print("Interrupted event")
+                }
+            }
+
+            observer.send(value: 2)
+            
+            signal.observe { event in
+                switch event {
+                case .value(let value): print("startB: \(value)")
+                case .failed(let error): print(error)
+                case .completed: print("Completed event")
+                case .interrupted: print("Interrupted event")
+                }
+            }
+            
+            observer.send(value: 3)
+        }
+        
+        cold: do {
+            return
+            let producer = SignalProducer<Int, NoError> { observer, lifetime in
+                observer.send(value: 1)
+                observer.send(value: 2)
+                observer.send(value: 3)
+            }
+
+            producer.start { event in
+                switch event {
+                case .value(let value): print("startA: \(value)")
+                case .failed(let error): print(error)
+                case .completed: print("Completed event")
+                case .interrupted: print("Interrupted event")
+                }
+            }
+            
+            producer.start { event in
+                switch event {
+                case .value(let value): print("startB: \(value)")
+                case .failed(let error): print(error)
+                case .completed: print("Completed event")
+                case .interrupted: print("Interrupted event")
+                }
+            }
+        }
     }
+    
+    // Signal: 講読後に流れたイベントを観察できる
+    // SignalProducer: Signalのレシピを毎回発行する。
     
     let tapButton = Signal<Void, NoError>.pipe()
     
@@ -59,13 +116,13 @@ final class ViewController: UIViewController {
         
         let value = MutableProperty<String>("")
         value <~ textField.reactive.continuousTextValues
-    
+        
         let button = UIButton()
         button.reactive.isEnabled <~ allValid
         label.reactive.text <~ textField.reactive.continuousTextValues
     }
-
-
+    
+    
     let bag = DisposeBag()
 }
 

@@ -38,5 +38,6 @@ final class LoginController_Reactive: UIViewController {
         viewModel.output.emailTextIsValid.observeValues { [weak self] in
              self?.usernameTextField.layer.borderColor = ($0 ? UIColor.green : .red).cgColor
         }
+        
     }
 }

@@ -23,3 +23,10 @@ struct LoginServiceStub: LoginService {
         
     }
 }
+
+
+// success or error
+struct LoginResult {
+}
+
+enum NetworkError: Error {}
