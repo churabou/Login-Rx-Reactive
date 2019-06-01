@@ -16,7 +16,7 @@ final class LoginController_Reactive: UIViewController {
     private var usernameTextField: UITextField { return baseView.usernameTextField }
     private var passwordTextField: UITextField { return baseView.passwordTextField }
     private var messageLabel: UILabel { return baseView.messageLabel }
-    private var confirmButton: UIButton { return baseView.confirmButton }
+    private var loginButton: UIButton { return baseView.confirmButton }
     private var tapGesture: UITapGestureRecognizer { return baseView.tapGesture }
     
     override func loadView() {
@@ -32,12 +32,24 @@ final class LoginController_Reactive: UIViewController {
     }
     
     private func bindToViewModel() {
-
         viewModel.input.emailText <~ usernameTextField.reactive.continuousTextValues
         
-        viewModel.output.emailTextIsValid.observeValues { [weak self] in
-             self?.usernameTextField.layer.borderColor = ($0 ? UIColor.green : .red).cgColor
+        viewModel.input.passwordText <~ passwordTextField.reactive.continuousTextValues.producer
+        
+        loginButton.reactive.controlEvents(.touchUpInside).observeValues { _ in
+            print("tappe")
         }
         
+        usernameTextField.reactive.isValid <~ viewModel.output.emailTextIsValid.producer
+        passwordTextField.reactive.isValid <~ viewModel.output.passwordTextIsValid.producer
+        loginButton.reactive.isEnabled <~ viewModel.output.loginButtonIsActive
+    }
+}
+
+
+private extension Reactive where Base: UITextField {
+    
+    var isValid: BindingTarget<Bool> {
+        return makeBindingTarget { $0.layer.borderColor = ($1 ? UIColor.green : .gray).cgColor }
     }
 }
