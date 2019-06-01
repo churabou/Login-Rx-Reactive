@@ -18,7 +18,7 @@ final class LoginViewModel_Rx {
     struct Input {
         var usernameText: AnyObserver<String>
         var passwordText: AnyObserver<String>
-        var tapRegisterButton: AnyObserver<Void>
+        var tapLoginButton: AnyObserver<Void>
     }
     
     struct Output {
@@ -39,7 +39,7 @@ final class LoginViewModel_Rx {
         input = Input(
             usernameText: emailText.asObserver(),
             passwordText: passText.asObserver(),
-            tapRegisterButton: tapRegisterButton.asObserver()
+            tapLoginButton: tapRegisterButton.asObserver()
         )
         
         let emailTextIsValid = emailText.map { $0.count > config.minimalUsernameLength }.share(replay: 1)

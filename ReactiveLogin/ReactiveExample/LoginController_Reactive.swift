@@ -31,13 +31,10 @@ final class LoginController_Reactive: UIViewController {
     }
     
     private func bindToViewModel() {
+        
         viewModel.input.emailText <~ usernameTextField.reactive.continuousTextValues
-        
         viewModel.input.passwordText <~ passwordTextField.reactive.continuousTextValues.producer
-        
-        loginButton.reactive.controlEvents(.touchUpInside).observeValues { _ in
-            print("tappe")
-        }
+        viewModel.input.tapLogin <~ loginButton.reactive.controlEvents(.touchUpInside).map { _ in }
         
         usernameTextField.reactive.isValid <~ viewModel.output.emailTextIsValid.producer
         passwordTextField.reactive.isValid <~ viewModel.output.passwordTextIsValid.producer
@@ -52,3 +49,22 @@ private extension Reactive where Base: UITextField {
         return makeBindingTarget { $0.layer.borderColor = ($1 ? UIColor.green : .gray).cgColor }
     }
 }
+
+
+extension Signal.Observer {
+    @discardableResult
+    static func <~
+        <Source: BindingSource>
+        (observer: Signal<Value, Error>.Observer, source: Source) -> Disposable?
+        where Source.Value == Value
+    {
+        return source.producer.start { [weak observer] in
+            switch $0 {
+            case .value(let val):
+                observer?.send(value: val)
+            default: break
+            }
+        }
+    }
+}
+

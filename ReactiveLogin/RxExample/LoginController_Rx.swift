@@ -46,12 +46,12 @@ final class LoginController_Rx: UIViewController {
             .disposed(by: bag)
         
         usernameTextField.rx.text
-            .orEmpty.asObservable()
-            .bind(to: viewModel.input.usernameText)
+            .orEmpty.asDriver()
+            .drive(viewModel.input.usernameText)
             .disposed(by: bag)
         
-        loginButton.rx.tap.asObservable()
-            .bind(to: viewModel.input.tapRegisterButton)
+        loginButton.rx.tap.asDriver()
+            .drive(viewModel.input.tapLoginButton)
             .disposed(by: bag)
         
         viewModel.output.registerButtonIsActive.subscribe(onNext: { [unowned self] in

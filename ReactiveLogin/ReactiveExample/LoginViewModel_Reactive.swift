@@ -27,10 +27,10 @@ final class LoginViewModel_Reactive {
     let input: Input
     let output: Output
     
-    private var loginService: LoginRepository
+    private var loginRepository: LoginRepository
 
-    init(loginService: LoginRepository = LoginRepositoryImpl()) {
-        self.loginService = loginService
+    init(loginRepository: LoginRepository = LoginRepositoryImpl()) {
+        self.loginRepository = loginRepository
         
         let emailText = MutableProperty<String>("")
         let passwordText = MutableProperty<String>("")
@@ -52,15 +52,11 @@ final class LoginViewModel_Reactive {
             loginButtonIsActive: loginButtonIsActive
         )
         
-        let (tapLogin, observer) = Signal<Void, NoError>.pipe()
-        tapLogin
+        tapLoginSignal
             .withLatest(from: Signal.combineLatest(
                 emailText.signal,
                 passwordText.signal
             ))
-            .flatMap(.latest) {
-            self.requestLogin(email: $1.0, password: $1.1)
-        }
     }
     
     private func requestLogin(email: String, password: String) -> SignalProducer<LoginResult, NetworkError> {
