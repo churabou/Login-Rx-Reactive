@@ -27,9 +27,9 @@ final class LoginViewModel_Reactive {
     let input: Input
     let output: Output
     
-    private var loginService: LoginService
+    private var loginService: LoginRepository
 
-    init(loginService: LoginService = LoginServiceStub()) {
+    init(loginService: LoginRepository = LoginRepositoryImpl()) {
         self.loginService = loginService
         
         let emailText = MutableProperty<String>("")

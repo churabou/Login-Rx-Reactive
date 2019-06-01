@@ -1,5 +1,5 @@
 //
-//  LoginService.swift
+//  LoginRepository.swift
 //  ReactiveLogin
 //
 //  Created by chutatsu on 2019/05/21.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol LoginService {
+protocol LoginRepository {
     func requestLogin(email: String, password: String)
 }
 
@@ -17,13 +17,12 @@ enum LoginError: Error {
     case networkError
 }
 
-struct LoginServiceStub: LoginService {
+struct LoginRepositoryImpl: LoginRepository {
     
     func requestLogin(email: String, password: String) {
         
     }
 }
-
 
 // success or error
 struct LoginResult {

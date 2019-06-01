@@ -20,11 +20,12 @@ final class LoginView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private (set) lazy var usernameTextField: UITextField = {
+    private (set) lazy var emailTextField: UITextField = {
         let it = UITextField()
         it.translatesAutoresizingMaskIntoConstraints = false
         it.layer.borderColor = UIColor.blue.cgColor
         it.layer.borderWidth = 2
+        it.placeholder = "email"
         return it
     }()
     
@@ -33,6 +34,7 @@ final class LoginView: UIView {
         it.translatesAutoresizingMaskIntoConstraints = false
         it.layer.borderColor = UIColor.blue.cgColor
         it.layer.borderWidth = 2
+        it.placeholder = "pass"
         return it
     }()
     
@@ -44,12 +46,16 @@ final class LoginView: UIView {
         return it
     }()
     
-    private  (set) lazy var confirmButton: UIButton = {
+    private  (set) lazy var loginButton: UIButton = {
         let it = UIButton()
         it.translatesAutoresizingMaskIntoConstraints = false
         it.backgroundColor = .orange
-        it.layer.cornerRadius = 10
-        it.setTitle("register", for: [])
+        it.layer.cornerRadius = 6
+        it.layer.shadowColor = UIColor.black.cgColor
+        it.layer.shadowRadius = 2
+        it.layer.shadowOffset = CGSize(width: 0, height: 2)
+        it.layer.shadowOpacity = 0.25
+        it.setTitle("Login", for: .normal)
         return it
     }()
     
@@ -57,27 +63,29 @@ final class LoginView: UIView {
     
     private func initializeView() {
         backgroundColor = .white
-        addSubview(usernameTextField)
+        addSubview(emailTextField)
         addSubview(passwordTextField)
         addSubview(messageLabel)
-        addSubview(confirmButton)
+        addSubview(loginButton)
         addGestureRecognizer(tapGesture)
     }
     
     private func initializeConstraints() {
         
+        let textViewHeight: CGFloat = 45
+        
         NSLayoutConstraint.activate([
-            usernameTextField.leftAnchor.constraint(equalTo: leftAnchor, constant: 30),
-            usernameTextField.rightAnchor.constraint(equalTo: rightAnchor, constant: -30),
-            usernameTextField.heightAnchor.constraint(equalToConstant: 30),
-            usernameTextField.topAnchor.constraint(equalTo: topAnchor, constant: 100)
+            emailTextField.leftAnchor.constraint(equalTo: leftAnchor, constant: 30),
+            emailTextField.rightAnchor.constraint(equalTo: rightAnchor, constant: -30),
+            emailTextField.heightAnchor.constraint(equalToConstant: textViewHeight),
+            emailTextField.topAnchor.constraint(equalTo: topAnchor, constant: 100)
             ])
         
         NSLayoutConstraint.activate([
             passwordTextField.leftAnchor.constraint(equalTo: leftAnchor, constant: 30),
             passwordTextField.rightAnchor.constraint(equalTo: rightAnchor, constant: -30),
-            passwordTextField.heightAnchor.constraint(equalToConstant: 30),
-            passwordTextField.topAnchor.constraint(equalTo: usernameTextField.bottomAnchor, constant: 20)
+            passwordTextField.heightAnchor.constraint(equalToConstant: textViewHeight),
+            passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 20)
             ])
         
         
@@ -89,10 +97,10 @@ final class LoginView: UIView {
             ])
         
         NSLayoutConstraint.activate([
-            confirmButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 80),
-            confirmButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -80),
-            messageLabel.heightAnchor.constraint(equalToConstant: 30),
-            confirmButton.topAnchor.constraint(equalTo: messageLabel.bottomAnchor, constant: 20)
+            loginButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 80),
+            loginButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -80),
+            loginButton.heightAnchor.constraint(equalToConstant: 45),
+            loginButton.topAnchor.constraint(equalTo: messageLabel.bottomAnchor, constant: 20)
             ])
     }
 }

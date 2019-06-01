@@ -15,7 +15,7 @@
 		1B205287229430AC00D5B42B /* ReactiveLoginUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B205286229430AC00D5B42B /* ReactiveLoginUITests.swift */; };
 		1B205292229431E300D5B42B /* LoginController_Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B205291229431E300D5B42B /* LoginController_Rx.swift */; };
 		1B2052942294323000D5B42B /* LoginViewModel_Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2052932294323000D5B42B /* LoginViewModel_Rx.swift */; };
-		1B2052962294327F00D5B42B /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2052952294327F00D5B42B /* LoginService.swift */; };
+		1B2052962294327F00D5B42B /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2052952294327F00D5B42B /* LoginRepository.swift */; };
 		1B205298229433C300D5B42B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B205297229433C300D5B42B /* LoginView.swift */; };
 		1B20529B2294354000D5B42B /* LoginViewModel_Reactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B20529A2294354000D5B42B /* LoginViewModel_Reactive.swift */; };
 		1B20529F229447B100D5B42B /* LoginController_Reactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B20529E229447B100D5B42B /* LoginController_Reactive.swift */; };
@@ -47,7 +47,7 @@
 		1B205288229430AC00D5B42B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B205291229431E300D5B42B /* LoginController_Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController_Rx.swift; sourceTree = "<group>"; };
 		1B2052932294323000D5B42B /* LoginViewModel_Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel_Rx.swift; sourceTree = "<group>"; };
-		1B2052952294327F00D5B42B /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		1B2052952294327F00D5B42B /* LoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepository.swift; sourceTree = "<group>"; };
 		1B205297229433C300D5B42B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		1B20529A2294354000D5B42B /* LoginViewModel_Reactive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel_Reactive.swift; sourceTree = "<group>"; };
 		1B20529E229447B100D5B42B /* LoginController_Reactive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController_Reactive.swift; sourceTree = "<group>"; };
@@ -140,7 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				1B205297229433C300D5B42B /* LoginView.swift */,
-				1B2052952294327F00D5B42B /* LoginService.swift */,
+				1B2052952294327F00D5B42B /* LoginRepository.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -364,7 +364,7 @@
 				1B20529B2294354000D5B42B /* LoginViewModel_Reactive.swift in Sources */,
 				1B20529F229447B100D5B42B /* LoginController_Reactive.swift in Sources */,
 				1B205274229430A900D5B42B /* ViewController.swift in Sources */,
-				1B2052962294327F00D5B42B /* LoginService.swift in Sources */,
+				1B2052962294327F00D5B42B /* LoginRepository.swift in Sources */,
 				1B205292229431E300D5B42B /* LoginController_Rx.swift in Sources */,
 				1B205272229430A900D5B42B /* AppDelegate.swift in Sources */,
 			);

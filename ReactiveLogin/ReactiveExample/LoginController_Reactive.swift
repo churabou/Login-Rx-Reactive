@@ -13,16 +13,15 @@ import ReactiveCocoa
 final class LoginController_Reactive: UIViewController {
     
     private let baseView = LoginView()
-    private var usernameTextField: UITextField { return baseView.usernameTextField }
+    private var usernameTextField: UITextField { return baseView.emailTextField }
     private var passwordTextField: UITextField { return baseView.passwordTextField }
     private var messageLabel: UILabel { return baseView.messageLabel }
-    private var loginButton: UIButton { return baseView.confirmButton }
+    private var loginButton: UIButton { return baseView.loginButton }
     private var tapGesture: UITapGestureRecognizer { return baseView.tapGesture }
     
     override func loadView() {
         view = baseView
     }
-    
     
     private let viewModel = LoginViewModel_Reactive()
     
